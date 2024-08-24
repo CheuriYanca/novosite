@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 
+
+
+
 def login (request):
     if request.method == "GET":
         return render(request, 'usuarios/login.html')
@@ -26,7 +29,7 @@ def cadastro(request):
     username = request.POST.get('email')
     email = request.POST.get('email')
     password = request.POST.get('senha')
-    first_name = request.POST.get('nome')
+    first_name = request.POST.get('firstname')
 
     user =  User.objects.filter(username=username).first()
 
@@ -37,3 +40,4 @@ def cadastro(request):
       user.save()
 
       return HttpResponse("Usuário cadastro com sucesso!")
+
