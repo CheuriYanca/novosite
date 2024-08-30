@@ -18,7 +18,7 @@
               <form action="{% url 'cadastro' %}" method="POST">
                 {% csrf_token %}
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" placeholder="Nome Completo" name="firstname">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="username" name = "nome">
                   <label for="floatingInput">Nome Completo</label>
                 </div>
                 <div class="form-floating mb-3">

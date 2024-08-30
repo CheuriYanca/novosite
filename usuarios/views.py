@@ -29,7 +29,7 @@ def cadastro(request):
     username = request.POST.get('email')
     email = request.POST.get('email')
     password = request.POST.get('senha')
-    first_name = request.POST.get('firstname')
+    first_name = request.POST.get('nome')
 
     user =  User.objects.filter(username=username).first()
 
@@ -41,3 +41,28 @@ def cadastro(request):
 
       return HttpResponse("Usuário cadastro com sucesso!")
 
+def home(request):
+  if request.user.is_authenticated:
+    return render(request, 'usuarios/home.html')
+  else:
+    return HttpResponse("Faça o login para acessar a página!")
+
+def lancar(request):
+  if request.user.is_authenticated:
+    return render(request, 'usuarios/lancar.html')
+  else:
+    return HttpResponse("Faça o login para acessar a página!")
+  
+
+def alterar(request):
+  if request.user.is_authenticated:
+    return render(request, 'usuarios/alterar.html')
+  else:
+    return HttpResponse("Faça o login para acessar a página!")
+
+
+def visualizar(request):
+  if request.user.is_authenticated:
+    return render(request, 'usuarios/visualizar.html')
+  else:
+    return HttpResponse("Faça o login para acessar a página!")
