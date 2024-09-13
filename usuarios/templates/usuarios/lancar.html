@@ -4,4 +4,34 @@
 
 {% block titulo %}Lançar Notas{% endblock %}
 
-{% block conteudo %}Aqui dentro vai o conteúdo...{% endblock %}
+{% block conteudo %}
+<h3>Cadastro de Notas</h3>
+<p class = "lead">Preencha todas as informações.</p>
+<hr>
+<form action = "{% url 'lancar' %}" method = "POST">
+  {% csrf_token %}
+  <div class = "form-register">
+    <label for = "userName">Nome:</label>
+    <label for = "Name" style = "font-weight: bold;">{{ user.first_name }}</label>
+  </div>
+  <div class= "form-register mb-3">
+    <label for = "disciplinaName">Disciplina:</label>
+    <input type = "text" id= "disciplina" name = "disciplina">
+  </div>
+  <div class = "form-register mb-3">
+    <label for = "notaAtividades">Nota das Atividades:</label>
+    <input type = "text" id= "notaAtividades" name= "nota_atividades">
+  </div>
+  <div class = "form-register mb-3">
+    <label for = "notaTabalho">Nota do Trabalho:</label>
+    <input type = "text" id= "notaTrabalho" name= "nota_trabalho">
+  </div>
+  <div class = "form-register mb-3">
+    <label for = "notaprova">Nota da Prova:</label>
+    <input type = "text" id= "notaprova" name= "nota_prova">
+  </div>
+  <button type = "submit" class = "btn btn-primary">Registrar Notas</button>
+  
+</form>
+{% endblock %}
+
